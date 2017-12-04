@@ -1,0 +1,50 @@
+<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+<link href="assets/plugins/jquery-jvectormap/jquery-jvectormap.css" rel="stylesheet" />
+<link href="assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
+<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+<link href="assets/plugins/morris/morris.css" rel="stylesheet" />
+<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+
+<div id="content" class="content">	
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">app name</a></li>
+        <li class="active">preferences </li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin page-header -->
+    <!-- end page-header -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-3 -->
+        <div class="col-md-3 col-sm-6">
+			<div class="m-b-10 f-s-10 m-t-20"><b class="text-inverse">PREFERENCES</b></div>
+			<!-- begin card -->
+			<div class="card card-inverse card-info text-center">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<p class="f-s-14">User Preferences Coming Soon</p>
+					</blockquote>
+				</div>
+			</div>
+        </div>
+        <!-- end col-3 -->
+    </div>
+    <!-- end row -->
+
+    <!-- begin row -->
+    <div class="row">
+    </div>
+
+</div>
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script>
+    App.restartGlobalFunction();
+    App.setPageTitle('app name');
+    
+    $.getScript('assets/js/dashboard-v2.min.js').done(function() {
+        DashboardV2.init();
+    });
+</script>
+<!-- ================== END PAGE LEVEL JS ================== -->

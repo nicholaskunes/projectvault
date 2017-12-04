@@ -1,0 +1,86 @@
+<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+<link href="assets/plugins/jquery-jvectormap/jquery-jvectormap.css" rel="stylesheet" />
+<link href="assets/plugins/bootstrap-calendar/css/bootstrap_calendar.css" rel="stylesheet" />
+<link href="assets/plugins/gritter/css/jquery.gritter.css" rel="stylesheet" />
+<link href="assets/plugins/morris/morris.css" rel="stylesheet" />
+<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+
+<div id="content" class="content">	
+    <!-- begin breadcrumb -->
+    <ol class="breadcrumb pull-right">
+        <li><a href="javascript:;">app name</a></li>
+        <li class="active">verification </li>
+    </ol>
+    <!-- end breadcrumb -->
+    <!-- begin row -->
+    <div class="row">
+        <!-- begin col-3 -->
+        <div class="col-md-3 col-sm-6">
+			<div class="m-b-10 f-s-10 m-t-20"><b class="text-inverse">VERIFICATION STATUS</b></div>
+			<!-- begin card -->
+			<div class="card card-inverse card-danger text-center">
+				<div class="card-block">
+					<blockquote class="card-blockquote">
+						<p class="f-s-14">Your vault is currently unverified</p>
+					</blockquote>
+				</div>
+			</div>
+			<div class="m-b-10 f-s-10 m-t-20"><b class="text-inverse">BLUECHECK IDENTITY VERIFICATION</b></div>
+			<!-- begin card -->
+			<div class="card text-center">
+				<div class="card-header">
+					BLUECHECK
+				</div>
+				<div class="card-block">
+					<h4 class="card-title">bluecheck plugin placeholder</h4>
+					<p class="card-text">placeholder</p>
+					<a href="#" class="btn btn-sm btn-primary">verify button</a>
+				</div>
+				<div class="card-footer text-muted">
+					powered by BlueCheck API
+				</div>
+			</div>
+			<div class="m-b-10 f-s-10 m-t-20"><b class="text-inverse">APP NAME IDENTITY VERIFICATION</b></div>
+			<div class="card text-center">
+				<div class="card-header">
+					UPLOAD GOVERNMENT ISSUED ID
+				</div>
+				<div class="card-block">
+					<div class="panel-body">
+						<div id="dropzone">
+							<form action="/upload" class="dropzone needsclick" id="demo-upload">
+								<div class="dz-message needsclick">
+									tap to upload<br />
+								<span class="dz-note needsclick">
+									you must upload <strong>one form of government issued identification</strong> with <strong>two separate</strong> images of both the front and back of the identification card
+								</span>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="card-footer text-muted">
+					powered by BlueCheck API
+				</div>
+			</div>
+		</div>
+        <!-- end col-3 -->
+    </div>
+    <!-- end row -->
+
+    <!-- begin row -->
+    <div class="row">
+    </div>
+
+</div>
+
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script>
+    App.restartGlobalFunction();
+    App.setPageTitle('app name');
+    
+    $.getScript('assets/js/dashboard-v2.min.js').done(function() {
+        DashboardV2.init();
+    });
+</script>
+<!-- ================== END PAGE LEVEL JS ================== -->
