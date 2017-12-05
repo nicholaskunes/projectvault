@@ -19,6 +19,8 @@ require 'SMTP.php';
                             $mail->isSMTP(); // Set mailer to use SMTP
                             $mail->Host       = 'localhost'; // Specify main and backup SMTP servers
 							//$mail->SMTPAuth = true;
+							$mail->SMTPAutoTLS = false;
+
 
                             //$mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
                             $mail->Port       = 25; // TCP port to connect to
