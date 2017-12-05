@@ -19,9 +19,9 @@ require 'SMTP.php';
                             $mail->isSMTP(); // Set mailer to use SMTP
                             $mail->Host       = 'localhost'; // Specify main and backup SMTP servers
 
-                            $mail->SMTPSecure = 'tsl'; // Enable TLS encryption, `ssl` also accepted
+                            $mail->SMTPSecure = 'ssl'; // Enable TLS encryption, `ssl` also accepted
                             $mail->Port       = 25; // TCP port to connect to
-                            
+							                            
                             //Recipients
                             $mail->setFrom('no-reply@surrealarcher.com', 'Mailer');
                             $mail->addAddress('kunes.nick0@gmail.com', 'Joe User'); // Add a recipient
