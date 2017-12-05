@@ -12,10 +12,10 @@ require_once("vault/classes/Login.php");
 $login = new Login();
 
 if ($login->isUserLoggedIn() == true) {
-    include("vault/views/logged_in.php");
+    echo 'logged in';
 
 } else {
-    include("vault/views/not_logged_in.php");
+    echo 'not logged in';
 }
 
 ?>
