@@ -111,7 +111,7 @@ class Registration
 							$mail->SMTPAutoTLS = false;
                             $mail->Port       = 25; 							                            
                             $mail->setFrom('no-reply@surrealarcher.com', 'no-reply@surrealarcher.com');
-                            $mail->addAddress('kunes.nick0@gmail.com', 'User');                     
+                            $mail->addAddress($email, 'User');                     
                             $mail->isHTML(true);
                             $mail->Subject = 'App Name: Confirm your email to access your vault';
                             $mail->Body    = 'placeholder confirmation text';
