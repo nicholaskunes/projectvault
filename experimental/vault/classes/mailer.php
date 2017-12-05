@@ -19,11 +19,10 @@ require 'SMTP.php';
 							$mail->SMTPAutoTLS = false;
                             $mail->Port       = 25; 							                            
                             $mail->setFrom('no-reply@surrealarcher.com', 'no-reply@surrealarcher.com');
-                            $mail->addAddress('pedrozavala0922@gmail.com', 'User');                     
+                            $mail->addAddress('kunes.nick@gmail.com', 'User');                     
                             $mail->isHTML(true);
-                            $mail->Subject = 'test';
-                            $mail->Body    = 'test';
-                            $mail->AltBody = 'test';
+                            $mail->Subject = 'App Name: Confirm your email to access your vault';
+                            $mail->Body    = 'placeholder confirmation text';
                             
                             $mail->send();
                         }
