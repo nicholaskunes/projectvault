@@ -12,10 +12,10 @@ require_once("vault/classes/Login.php");
 $login = new Login();
 
 if ($login->isUserLoggedIn() == true) {
-    echo 'logged in';
 
 } else {
-    echo 'not logged in';
+    header( "Location: http://54.39.21.63/experimental/login.html" );
+	exit();
 }
 
 ?>

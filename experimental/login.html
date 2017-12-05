@@ -3,6 +3,23 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
+
+<?php
+
+require_once("vault/config/db.php");
+require_once("vault/classes/Login.php");
+
+$login = new Login();
+
+if ($login->isUserLoggedIn() == true) {
+	    header( "Location: http://54.39.21.63/experimental/login.html" );
+		exit();
+} else {
+
+}
+
+?>
+
 <head>
 	<meta charset="utf-8" />
 	<title>app name</title>
@@ -51,13 +68,13 @@
                 <div class="login-content">
                     <form action="index.html" method="POST" class="margin-bottom-0">
                         <div class="form-group m-b-15">
-                            <input type="text" class="form-control input-lg" placeholder="Email Address" required />
+                            <input type="text" name="email" class="form-control input-lg" placeholder="Email Address" required />
                         </div>
                         <div class="form-group m-b-15">
-                            <input type="password" class="form-control input-lg" placeholder="Password" required />
+                            <input type="password" name="passwd" class="form-control input-lg" placeholder="Password" required />
                         </div>
                         <div class="login-buttons">
-                            <button type="submit" class="btn btn-success btn-block btn-lg">access my vault</button>
+                            <button type="submit" value="login" name="login" class="btn btn-success btn-block btn-lg">access my vault</button>
                         </div>
                         <div class="m-t-20 m-b-40 p-b-40 text-inverse">
                             No vault yet? Click <a href="register.html" class="text-success">here</a> to start.
