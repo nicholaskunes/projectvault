@@ -1,17 +1,13 @@
 <?php
 
-echo 'start';
 
 require '../../vendor/autoload.php';
 
 $api_code = "fedcfc00-371d-4b84-b055-7052a4fb5cea";
 
 
-echo 'start';
+$Vault()->createWallet();
 
-//$vault = new Vault()->createWallet();
-
-echo 'one';
 
 class Vault
 {
