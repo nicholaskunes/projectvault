@@ -18,9 +18,7 @@ require 'SMTP.php';
                             $mail->SMTPDebug = 2; // Enable verbose debug output
                             $mail->isSMTP(); // Set mailer to use SMTP
                             $mail->Host       = 'vps160551.vps.ovh.ca'; // Specify main and backup SMTP servers
-                            $mail->SMTPAuth   = true; // Enable SMTP authentication
-                            $mail->Username   = 'kunes.nick0@gmail.com'; // SMTP username
-                            $mail->Password   = 'u37trte729'; // SMTP password
+
                             $mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
                             $mail->Port       = 587; // TCP port to connect to
                             
