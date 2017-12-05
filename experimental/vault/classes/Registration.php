@@ -1,5 +1,9 @@
 <?php
 
+require_once("config/db.php");
+require_once("classes/Registration.php");
+$registration = new Registration();
+
 /**
  * Class registration
  * handles the user registration
@@ -26,7 +30,6 @@ class Registration
     public function __construct()
     {
         if (isset($_POST["register"])) {
-			echo 'boop';
             $this->registerNewUser();
         }
     }
