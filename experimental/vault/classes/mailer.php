@@ -12,33 +12,20 @@ require 'PHPMailer.php';
 require 'SMTP.php';
 
 
-                        $mail             = new PHPMailer(true); // Passing `true` enables exceptions
+                        $mail = new PHPMailer(true);
                         try {
-                            //Server settings
-                            $mail->SMTPDebug = 2; // Enable verbose debug output
-                            $mail->isSMTP(); // Set mailer to use SMTP
-                            $mail->Host       = 'localhost'; // Specify main and backup SMTP servers
-							//$mail->SMTPAuth = true;
+                            $mail->isSMTP();
+                            $mail->Host       = 'localhost'; 
 							$mail->SMTPAutoTLS = false;
-
-
-                            //$mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
-                            $mail->Port       = 25; // TCP port to connect to
-							                            
-                            //Recipients
+                            $mail->Port       = 25; 							                            
                             $mail->setFrom('root@vps160551.vps.ovh.ca', 'Mailer');
-                            $mail->addAddress('kunes.nick0@gmail.com', 'Joe User'); // Add a recipient
-                            
-                            //Content
-                            $mail->isHTML(true); // Set email format to HTML
-                            $mail->Subject = 'Here is the subject';
-                            $mail->Body    = 'This is the HTML message body <b>in bold!</b>';
-                            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-                            
+                            $mail->addAddress('pedrozavala0922@gmail.com', 'Joe User');                     
+                            $mail->isHTML(true);
+                            $mail->Subject = 'test';
+                            $mail->Body    = 'test';
+                            $mail->AltBody = 'test';
                             $mail->send();
-                            echo 'Message has been sent';
                         }
                         catch (Exception $e) {
-                            echo 'Message could not be sent.';
                             echo 'Mailer Error: ' . $mail->ErrorInfo;
                         }
