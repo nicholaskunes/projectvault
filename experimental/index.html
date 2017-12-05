@@ -3,6 +3,23 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
+
+<?php
+
+require_once("vault/config/db.php");
+require_once("vault/classes/Login.php");
+
+$login = new Login();
+
+if ($login->isUserLoggedIn() == true) {
+    include("vault/views/logged_in.php");
+
+} else {
+    include("vault/views/not_logged_in.php");
+}
+
+?>
+
 <head>
 	<meta charset="utf-8" />
 	<title id="page-title">app name</title>

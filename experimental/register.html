@@ -50,40 +50,40 @@
                         <label class="control-label">name <span class="text-danger">*</span></label>
                         <div class="row row-space-10">
                             <div class="col-md-6 m-b-15">
-                                <input type="text" class="form-control" placeholder="First name" required />
+                                <input type="text" class="form-control" placeholder="First name" name="first" required />
                             </div>
                             <div class="col-md-6 m-b-15">
-                                <input type="text" class="form-control" placeholder="Last name" required />
+                                <input type="text" class="form-control" placeholder="Last name" name="last" required />
                             </div>
                         </div>
                         <label class="control-label">email <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Email address" required />
+                                <input type="text" class="form-control" placeholder="Email address" name="email" required />
                             </div>
                         </div>
                         <label class="control-label">re-enter email <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Re-enter email address" required />
+                                <input type="text" class="form-control" placeholder="Re-enter email address" name="email2" required />
                             </div>
                         </div>
                         <label class="control-label">password <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="password" class="form-control" placeholder="Password" required />
+                                <input type="password" class="form-control" placeholder="Password" name="passwd" required />
                             </div>
                         </div>
                         <label class="control-label">date of birth <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-								<input type="text" class="form-control" id="datepicker-default" placeholder="Select Date" value="01/1/2018">
+								<input type="text" class="form-control" id="datepicker-default" placeholder="Select Date" name="birth" value="01/1/2018">
                             </div>
                         </div>
                         <label class="control-label">state <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-								<select type="text" class="form-control" id="statepicker">
+								<select type="text" class="form-control"  name="state" id="statepicker">
 									<option value="AL">Alabama</option>
 									<option value="AK">Alaska</option>
 									<option value="AZ">Arizona</option>
@@ -147,18 +147,18 @@
                         <label class="control-label">street address <span class="text-danger">*</span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Street Address" required />
+                                <input type="text" class="form-control"  name="address" placeholder="Street Address" required />
                             </div>
                         </div>
                         <label class="control-label">zip code <span class="text-danger"></span></label>
                         <div class="row m-b-15">
                             <div class="col-md-12">
-                                <input type="text" class="form-control" placeholder="Zipcode" required />
+                                <input type="text" class="form-control" name="zip" placeholder="Zipcode" required />
                             </div>
                         </div>
                         <div class="checkbox m-b-30">
                             <label>
-                                <input type="checkbox" required /> by clicking create, you agree to our <a href="#">terms</a> and that you have read our <a href="#">data policy</a>, and are confirming that the details you inputed is your identity bound under united states law
+                                <input type="checkbox"  name="agreement" required /> by clicking create, you agree to our <a href="#">terms</a> and that you have read our <a href="#">data policy</a>, and are confirming that the details you inputed is your identity bound under united states law
                             </label>
                         </div>
                         <div class="register-buttons">
