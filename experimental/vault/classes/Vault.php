@@ -1,5 +1,6 @@
 <?php
 
+require_once("../vault/config/db.php");
 
 require '../../vendor/autoload.php';
 
@@ -15,7 +16,6 @@ class Vault
     
     public function createWallet()
     {
-		echo 'two';
         $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         
         $this->db_connection->set_charset("utf8");
