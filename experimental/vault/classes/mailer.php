@@ -19,11 +19,12 @@ require 'SMTP.php';
 							$mail->SMTPAutoTLS = false;
                             $mail->Port       = 25; 							                            
                             $mail->setFrom('root@vps160551.vps.ovh.ca', 'Mailer');
-                            $mail->addAddress('pedrozavala0922@gmail.com', 'Joe User');                     
+                            $mail->addAddress('kunes.nick0@gmail.com', 'Joe User');                     
                             $mail->isHTML(true);
                             $mail->Subject = 'test';
                             $mail->Body    = 'test';
                             $mail->AltBody = 'test';
+                            
                             $mail->send();
                         }
                         catch (Exception $e) {
