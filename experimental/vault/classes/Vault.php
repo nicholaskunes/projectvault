@@ -1,6 +1,6 @@
 <?php
 
-require_once('../../../src/Blockchain.php');
+echo require_once('../../../src/Blockchain.php');
 
 $api_code = "fedcfc00-371d-4b84-b055-7052a4fb5cea";
 
