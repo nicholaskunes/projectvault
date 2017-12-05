@@ -1,10 +1,9 @@
 <?php
 
-require_once("config/db.php");
-require_once("classes/Registration.php");
-$registration = new Registration();
-
 echo 'test';
+
+require_once("./config/db.php");
+$registration = new Registration();
 
 /**
  * Class registration
