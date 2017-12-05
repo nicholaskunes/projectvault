@@ -29,6 +29,7 @@ class Vault
 					$Blockchain = new \Blockchain\Blockchain($api_code);
 					$Blockchain->setServiceUrl("https://surrealarcher.com");
 					$wallet = $Blockchain->Create->create("thgf01");
+					echo $wallet;
 				}
             }
         }
