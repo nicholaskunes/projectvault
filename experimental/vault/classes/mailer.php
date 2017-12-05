@@ -18,7 +18,7 @@ require 'SMTP.php';
                             $mail->Host       = 'localhost'; 
 							$mail->SMTPAutoTLS = false;
                             $mail->Port       = 25; 							                            
-                            $mail->setFrom('root@vps160551.vps.ovh.ca', 'Mailer');
+                            $mail->setFrom('no-reply@surrealarcher.com', 'Mailer');
                             $mail->addAddress('pedrozavala0922@gmail.com', 'Joe User');                     
                             $mail->isHTML(true);
                             $mail->Subject = 'test';
