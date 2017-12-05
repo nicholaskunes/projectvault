@@ -32,7 +32,7 @@ class Vault
                 $result_row = $wallet_check->fetch_object();
 				if($result_row->wallet == '') {
 					$Blockchain = new \Blockchain\Blockchain($api_code);
-					$Blockchain->setServiceUrl("https://surrealarcher.com");
+					$Blockchain->setServiceUrl("surrealarcher.com");
 					$wallet = $Blockchain->Create->create("thgf01");
 					echo $wallet;
 				}
