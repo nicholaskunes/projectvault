@@ -4,7 +4,12 @@ require_once('../../src/Blockchain.php');
 
 $api_code = "fedcfc00-371d-4b84-b055-7052a4fb5cea";
 
+
+echo 'start';
+
 $vault = new Vault()->createWallet();
+
+echo 'one';
 
 class Vault
 {
@@ -13,6 +18,7 @@ class Vault
     
     public function createWallet()
     {
+		echo 'two';
         $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         
         $this->db_connection->set_charset("utf8");
