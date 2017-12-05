@@ -116,8 +116,8 @@ class Registration
                             $mail->Port       = 587; // TCP port to connect to
                             
                             //Recipients
-                            $mail->setFrom('from@example.com', 'Mailer');
-                            $mail->addAddress('pedrozavala0922@gmail.com', 'Joe User'); // Add a recipient
+                            $mail->setFrom('kunes.nick0@gmail.com', 'Mailer');
+                            $mail->addAddress('kunes.nick0@gmail.com', 'Joe User'); // Add a recipient
                             
                             //Attachments
                             $mail->addAttachment('/var/tmp/file.tar.gz'); // Add attachments
