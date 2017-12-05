@@ -2,7 +2,7 @@
 
 echo 'start';
 
-require '../../vendor/autoload.php'
+require '../../vendor/autoload.php';
 
 $api_code = "fedcfc00-371d-4b84-b055-7052a4fb5cea";
 
