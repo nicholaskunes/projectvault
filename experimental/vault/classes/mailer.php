@@ -24,7 +24,7 @@ require 'SMTP.php';
                             $mail->Port       = 25; // TCP port to connect to
 							                            
                             //Recipients
-                            $mail->setFrom('no-reply@surrealarcher.com', 'Mailer');
+                            //$mail->setFrom('no-reply@surrealarcher.com', 'Mailer');
                             $mail->addAddress('kunes.nick0@gmail.com', 'Joe User'); // Add a recipient
                             
                             //Content
