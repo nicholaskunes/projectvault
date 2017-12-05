@@ -17,6 +17,8 @@ class Registration
      * @var array $messages Collection of success / neutral messages
      */
     public $messages = array();
+	
+	public $registered = false;
 
     /**
      * the function "__construct()" automatically starts whenever an object of this class is created,
@@ -101,6 +103,7 @@ class Registration
                     // if user has been added successfully
                     if ($query_new_user_insert) {
                         $this->messages[] = "Your account has been created successfully. You can now log in.";
+						$registered = true;
                     } else {
                         echo "Sorry, your registration failed. Please go back and try again.";
                     }
