@@ -10,6 +10,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'Exception.php';
 require 'PHPMailer.php';
 require 'SMTP.php';
+require 'Vault.php';
 
 class Registration
 {
@@ -103,8 +104,8 @@ class Registration
                     if ($query_new_user_insert) {
                         $this->messages[] = "Your account has been created successfully. You can now log in.";
                         $this->registered = true;
-                        $mail             = new PHPMailer(true); // Passing `true` enables exceptions
-                                                $mail = new PHPMailer(true);
+                        $mail = new PHPMailer(true); // Passing `true` enables exceptions
+                        $mail = new PHPMailer(true);
                         try {
                             $mail->isSMTP();
                             $mail->Host       = 'localhost'; 
