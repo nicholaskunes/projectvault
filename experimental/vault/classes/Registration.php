@@ -26,6 +26,7 @@ class Registration
     public function __construct()
     {
         if (isset($_POST["register"])) {
+			echo 'boop';
             $this->registerNewUser();
         }
     }
