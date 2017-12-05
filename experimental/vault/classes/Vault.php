@@ -9,7 +9,7 @@ $api_code = "fedcfc00-371d-4b84-b055-7052a4fb5cea";
 
 echo 'start';
 
-$vault = new Vault()->createWallet();
+//$vault = new Vault()->createWallet();
 
 echo 'one';
 
