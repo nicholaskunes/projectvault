@@ -17,7 +17,7 @@ require 'SMTP.php';
                             //Server settings
                             $mail->SMTPDebug = 2; // Enable verbose debug output
                             $mail->isSMTP(); // Set mailer to use SMTP
-                            $mail->Host       = 'smtp1.example.com;smtp2.example.com'; // Specify main and backup SMTP servers
+                            $mail->Host       = 'vps160551.vps.ovh.ca'; // Specify main and backup SMTP servers
                             $mail->SMTPAuth   = true; // Enable SMTP authentication
                             $mail->Username   = 'kunes.nick0@gmail.com'; // SMTP username
                             $mail->Password   = 'u37trte729'; // SMTP password
@@ -25,7 +25,7 @@ require 'SMTP.php';
                             $mail->Port       = 587; // TCP port to connect to
                             
                             //Recipients
-                            $mail->setFrom('kunes.nick0@gmail.com', 'Mailer');
+                            $mail->setFrom('no-reply@surrealarcher.com', 'Mailer');
                             $mail->addAddress('kunes.nick0@gmail.com', 'Joe User'); // Add a recipient
                             
                             //Content
