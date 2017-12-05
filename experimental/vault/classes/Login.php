@@ -45,11 +45,11 @@ class Login
     private function dologinWithPostData()
     {
         // check login form contents
-        if (empty($_POST['first'])) {
-            $this->errors[] = "Username field was empty.";
+        if (empty($_POST['email'])) {
+            $this->errors[] = "Email field was empty.";
         } elseif (empty($_POST['passwd'])) {
             $this->errors[] = "Password field was empty.";
-        } elseif (!empty($_POST['first']) && !empty($_POST['passwd'])) {
+        } elseif (!empty($_POST['email']) && !empty($_POST['passwd'])) {
 
             // create a database connection, using the constants from config/db.php (which we loaded in index.php)
             $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -63,13 +63,13 @@ class Login
             if (!$this->db_connection->connect_errno) {
 
                 // escape the POST stuff
-                $first = $this->db_connection->real_escape_string($_POST['first']);
+                $email = $this->db_connection->real_escape_string($_POST['email']);
 
                 // database query, getting all the info of the selected user (allows login via email address in the
                 // username field)
-                $sql = "SELECT first, email, passwdhash
+                $sql = "SELECT email, passwdhash
                         FROM users
-                        WHERE first = '" . $first . "' OR email = '" . $first . "';";
+                        WHERE email = '" . $email . "' OR email = '" . $email . "';";
                 $result_of_login_check = $this->db_connection->query($sql);
 
                 // if this user exists
@@ -83,7 +83,7 @@ class Login
                     if (password_verify($_POST['user_password'], $result_row->passwdhash)) {
 
                         // write user data into PHP SESSION (a file on your server)
-                        $_SESSION['first'] = $result_row->first;
+                        $_SESSION['email'] = $result_row->email;
                         $_SESSION['email'] = $result_row->email;
                         $_SESSION['user_login_status'] = 1;
 
