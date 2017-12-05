@@ -11,8 +11,14 @@ require_once("vault/classes/Login.php");
 
 $login = new Login();
 
+    if ($login->errors) {
+        foreach ($login->errors as $error) {
+            echo $error;
+        }
+    }
+
 if ($login->isUserLoggedIn() == true) {
-	    header( "Location: http://54.39.21.63/experimental/login.html" );
+	    header( "Location: http://54.39.21.63/experimental/index.html" );
 		exit();
 } else {
 
