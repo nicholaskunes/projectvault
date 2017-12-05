@@ -47,9 +47,9 @@ class Login
         // check login form contents
         if (empty($_POST['first'])) {
             $this->errors[] = "Username field was empty.";
-        } elseif (empty($_POST['user_password'])) {
+        } elseif (empty($_POST['passwd'])) {
             $this->errors[] = "Password field was empty.";
-        } elseif (!empty($_POST['first']) && !empty($_POST['user_password'])) {
+        } elseif (!empty($_POST['first']) && !empty($_POST['passwd'])) {
 
             // create a database connection, using the constants from config/db.php (which we loaded in index.php)
             $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);

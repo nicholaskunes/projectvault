@@ -38,11 +38,11 @@ class Registration
     {
         if (empty($_POST['first'])) {
             $this->errors[] = "Empty Username";
-        } elseif (empty($_POST['user_password_new']) || empty($_POST['user_password_repeat'])) {
+        } elseif (empty($_POST['passwd']) || empty($_POST['passwd2'])) {
             $this->errors[] = "Empty Password";
-        } elseif ($_POST['user_password_new'] !== $_POST['user_password_repeat']) {
+        } elseif ($_POST['passwd'] !== $_POST['passwd2']) {
             $this->errors[] = "Password and password repeat are not the same";
-        } elseif (strlen($_POST['user_password_new']) < 6) {
+        } elseif (strlen($_POST['passwd']) < 6) {
             $this->errors[] = "Password has a minimum length of 6 characters";
         } elseif (strlen($_POST['first']) > 64 || strlen($_POST['first']) < 2) {
             $this->errors[] = "Username cannot be shorter than 2 or longer than 64 characters";
@@ -61,9 +61,9 @@ class Registration
             && !empty($_POST['email'])
             && strlen($_POST['email']) <= 64
             && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
-            && !empty($_POST['user_password_new'])
-            && !empty($_POST['user_password_repeat'])
-            && ($_POST['user_password_new'] === $_POST['user_password_repeat'])
+            && !empty($_POST['passwd'])
+            && !empty($_POST['passwd2'])
+            && ($_POST['passwd'] === $_POST['passwd2'])
         ) {
             // create a database connection
             $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
@@ -80,7 +80,7 @@ class Registration
                 $first = $this->db_connection->real_escape_string(strip_tags($_POST['first'], ENT_QUOTES));
                 $email = $this->db_connection->real_escape_string(strip_tags($_POST['email'], ENT_QUOTES));
 
-                $user_password = $_POST['user_password_new'];
+                $user_password = $_POST['passwd'];
 
                 // crypt the user's password with PHP 5.5's password_hash() function, results in a 60 character
                 // hash string. the PASSWORD_DEFAULT constant is defined by the PHP 5.5, or if you are using
