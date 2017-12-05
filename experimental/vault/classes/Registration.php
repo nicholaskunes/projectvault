@@ -36,7 +36,7 @@ class Registration
      */
     private function registerNewUser()
     {
-        if (empty($_POST['user_name'])) {
+        if (empty($_POST['first'])) {
             $this->errors[] = "Empty Username";
         } elseif (empty($_POST['user_password_new']) || empty($_POST['user_password_repeat'])) {
             $this->errors[] = "Empty Password";
@@ -44,23 +44,23 @@ class Registration
             $this->errors[] = "Password and password repeat are not the same";
         } elseif (strlen($_POST['user_password_new']) < 6) {
             $this->errors[] = "Password has a minimum length of 6 characters";
-        } elseif (strlen($_POST['user_name']) > 64 || strlen($_POST['user_name']) < 2) {
+        } elseif (strlen($_POST['first']) > 64 || strlen($_POST['first']) < 2) {
             $this->errors[] = "Username cannot be shorter than 2 or longer than 64 characters";
-        } elseif (!preg_match('/^[a-z\d]{2,64}$/i', $_POST['user_name'])) {
+        } elseif (!preg_match('/^[a-z\d]{2,64}$/i', $_POST['first'])) {
             $this->errors[] = "Username does not fit the name scheme: only a-Z and numbers are allowed, 2 to 64 characters";
-        } elseif (empty($_POST['user_email'])) {
+        } elseif (empty($_POST['email'])) {
             $this->errors[] = "Email cannot be empty";
-        } elseif (strlen($_POST['user_email']) > 64) {
+        } elseif (strlen($_POST['email']) > 64) {
             $this->errors[] = "Email cannot be longer than 64 characters";
-        } elseif (!filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)) {
+        } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
             $this->errors[] = "Your email address is not in a valid email format";
-        } elseif (!empty($_POST['user_name'])
-            && strlen($_POST['user_name']) <= 64
-            && strlen($_POST['user_name']) >= 2
-            && preg_match('/^[a-z\d]{2,64}$/i', $_POST['user_name'])
-            && !empty($_POST['user_email'])
-            && strlen($_POST['user_email']) <= 64
-            && filter_var($_POST['user_email'], FILTER_VALIDATE_EMAIL)
+        } elseif (!empty($_POST['first'])
+            && strlen($_POST['first']) <= 64
+            && strlen($_POST['first']) >= 2
+            && preg_match('/^[a-z\d]{2,64}$/i', $_POST['first'])
+            && !empty($_POST['email'])
+            && strlen($_POST['email']) <= 64
+            && filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)
             && !empty($_POST['user_password_new'])
             && !empty($_POST['user_password_repeat'])
             && ($_POST['user_password_new'] === $_POST['user_password_repeat'])
@@ -77,8 +77,8 @@ class Registration
             if (!$this->db_connection->connect_errno) {
 
                 // escaping, additionally removing everything that could be (html/javascript-) code
-                $user_name = $this->db_connection->real_escape_string(strip_tags($_POST['user_name'], ENT_QUOTES));
-                $user_email = $this->db_connection->real_escape_string(strip_tags($_POST['user_email'], ENT_QUOTES));
+                $first = $this->db_connection->real_escape_string(strip_tags($_POST['first'], ENT_QUOTES));
+                $email = $this->db_connection->real_escape_string(strip_tags($_POST['email'], ENT_QUOTES));
 
                 $user_password = $_POST['user_password_new'];
 
@@ -88,15 +88,15 @@ class Registration
                 $user_password_hash = password_hash($user_password, PASSWORD_DEFAULT);
 
                 // check if user or email address already exists
-                $sql = "SELECT * FROM users WHERE user_name = '" . $user_name . "' OR user_email = '" . $user_email . "';";
+                $sql = "SELECT * FROM users WHERE first = '" . $first . "' OR email = '" . $email . "';";
                 $query_check_user_name = $this->db_connection->query($sql);
 
                 if ($query_check_user_name->num_rows == 1) {
                     $this->errors[] = "Sorry, that username / email address is already taken.";
                 } else {
                     // write new user's data into database
-                    $sql = "INSERT INTO users (user_name, user_password_hash, user_email)
-                            VALUES('" . $user_name . "', '" . $user_password_hash . "', '" . $user_email . "');";
+                    $sql = "INSERT INTO users (first, user_password_hash, email)
+                            VALUES('" . $first . "', '" . $user_password_hash . "', '" . $email . "');";
                     $query_new_user_insert = $this->db_connection->query($sql);
 
                     // if user has been added successfully
