@@ -12,21 +12,21 @@ Vault::createWallet();
 class Vault
 {
 
-    private $db_connection = null;
+    public $db_connection = null;
     
     public function createWallet()
     {
-        $this->db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+        $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         
-        $this->db_connection->set_charset("utf8");
-        if (!$this->db_connection->connect_errno) {
+        $db_connection->set_charset("utf8");
+        if (!$db_connection->connect_errno) {
             
-            $email = $this->db_connection->real_escape_string($_POST['email']);
+            $email = $db_connection->real_escape_string($_POST['email']);
             
             $sql     = "SELECT wallet
                         FROM users
                         WHERE email = '" . $email . "';";
-            $wallet_check = $this->db_connection->query($sql);
+            $wallet_check = $db_connection->query($sql);
             
             if ($wallet_check->num_rows == 1) {
                 $result_row = $wallet_check->fetch_object();
