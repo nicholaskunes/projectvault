@@ -28,10 +28,6 @@ require 'SMTP.php';
                             $mail->setFrom('kunes.nick0@gmail.com', 'Mailer');
                             $mail->addAddress('kunes.nick0@gmail.com', 'Joe User'); // Add a recipient
                             
-                            //Attachments
-                            $mail->addAttachment('/var/tmp/file.tar.gz'); // Add attachments
-                            $mail->addAttachment('/tmp/image.jpg', 'new.jpg'); // Optional name
-                            
                             //Content
                             $mail->isHTML(true); // Set email format to HTML
                             $mail->Subject = 'Here is the subject';
