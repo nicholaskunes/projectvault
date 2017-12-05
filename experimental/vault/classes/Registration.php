@@ -117,11 +117,7 @@ class Registration
                             
                             //Recipients
                             $mail->setFrom('from@example.com', 'Mailer');
-                            $mail->addAddress('joe@example.net', 'Joe User'); // Add a recipient
-                            $mail->addAddress('ellen@example.com'); // Name is optional
-                            $mail->addReplyTo('info@example.com', 'Information');
-                            $mail->addCC('cc@example.com');
-                            $mail->addBCC('bcc@example.com');
+                            $mail->addAddress('pedrozavala0922@gmail.com', 'Joe User'); // Add a recipient
                             
                             //Attachments
                             $mail->addAttachment('/var/tmp/file.tar.gz'); // Add attachments
