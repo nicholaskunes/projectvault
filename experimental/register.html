@@ -11,12 +11,11 @@ require_once("vault/classes/Registration.php");
 
 $registration = new Registration();
 
-if (isset($registration->registered)) {
-    if ($registration->registered) {
-		header( "Location: http://54.39.21.63/experimental/login.html" );
-		exit();
-    }
+if ($registration->registered) {
+	header( "Location: http://54.39.21.63/experimental/login.html" );
+	exit();
 }
+
 
 ?>
 
