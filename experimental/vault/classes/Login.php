@@ -80,7 +80,7 @@ class Login
 
                     // using PHP 5.5's password_verify() function to check if the provided password fits
                     // the hash of that user's password
-                    if (password_verify($_POST['user_password'], $result_row->passwdhash)) {
+                    if (password_verify($_POST['passwd'], $result_row->passwdhash)) {
 
                         // write user data into PHP SESSION (a file on your server)
                         $_SESSION['email'] = $result_row->email;
