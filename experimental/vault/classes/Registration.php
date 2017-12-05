@@ -85,7 +85,7 @@ class Registration
                 // crypt the user's password with PHP 5.5's password_hash() function, results in a 60 character
                 // hash string. the PASSWORD_DEFAULT constant is defined by the PHP 5.5, or if you are using
                 // PHP 5.3/5.4, by the password hashing compatibility library
-                $user_password_hash = password_hash($user_password, PASSWORD_DEFAULT);
+                $passwdhash = password_hash($user_password, PASSWORD_DEFAULT);
 
                 // check if user or email address already exists
                 $sql = "SELECT * FROM users WHERE first = '" . $first . "' OR email = '" . $email . "';";
@@ -95,8 +95,8 @@ class Registration
                     $this->errors[] = "Sorry, that username / email address is already taken.";
                 } else {
                     // write new user's data into database
-                    $sql = "INSERT INTO users (first, user_password_hash, email)
-                            VALUES('" . $first . "', '" . $user_password_hash . "', '" . $email . "');";
+                    $sql = "INSERT INTO users (first, passwdhash, email)
+                            VALUES('" . $first . "', '" . $passwdhash . "', '" . $email . "');";
                     $query_new_user_insert = $this->db_connection->query($sql);
 
                     // if user has been added successfully
