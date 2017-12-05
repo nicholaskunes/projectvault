@@ -17,11 +17,11 @@ require 'SMTP.php';
                             //Server settings
                             $mail->SMTPDebug = 2; // Enable verbose debug output
                             $mail->isSMTP(); // Set mailer to use SMTP
-                            $mail->Host       = 'vps160551.vps.ovh.ca'; // Specify main and backup SMTP servers
-							$mail->SMTPAuth = true;
+                            //$mail->Host       = 'vps160551.vps.ovh.ca'; // Specify main and backup SMTP servers
+							//$mail->SMTPAuth = true;
 
-                            $mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
-                            $mail->Port       = 25; // TCP port to connect to
+                            //$mail->SMTPSecure = 'tls'; // Enable TLS encryption, `ssl` also accepted
+                            //$mail->Port       = 25; // TCP port to connect to
 							                            
                             //Recipients
                             $mail->setFrom('no-reply@surrealarcher.com', 'Mailer');
