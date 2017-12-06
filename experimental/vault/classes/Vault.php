@@ -37,7 +37,7 @@ if (isset($_POST["balance"])) {
 				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
                 $address = $Blockchain->Wallet->getBalance();
                 
-                echo $address->balance;
+                echo $balance;
             }
         }
     }
