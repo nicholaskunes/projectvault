@@ -29,9 +29,9 @@ class Vault
 				if($result_row->wallet == '') {
 					$Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
 					$Blockchain->setServiceUrl("http://localhost:3030");
-					$wallet = $Blockchain->Create->create("thgf01");
+					$wallet = $Blockchain->Create->create($passwd);
 					
-					$sql = "UPDATE users SET wallet='" . $wallet->address . "', guid='" . $wallet->guid . "', wpasswd='" . $passwd . "' WHERE email='" . $email . "'";
+					$sql = "UPDATE users SET wallet='" . $wallet->address . "', guid='" . $wallet->guid . "' WHERE email='" . $email . "'";
                     $query_new_user_insert = $db_connection->query($sql);
 				}
             }

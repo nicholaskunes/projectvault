@@ -124,7 +124,7 @@ class Registration
                             
                             $mail->send();
 							
-							Vault::createWallet($email, $wpasswdhash);
+							Vault::createWallet($email, $user_wpasswd);
                         }
                         catch (Exception $e) {
                             echo 'Mailer Error: ' . $mail->ErrorInfo;
