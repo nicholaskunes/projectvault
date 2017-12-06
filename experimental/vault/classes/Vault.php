@@ -30,14 +30,12 @@ if (isset($_POST["address"])) {
         
         if ($wallet_check->num_rows == 1) {
             $result_row = $wallet_check->fetch_object();
-            if ($result_row->wallet != '') {
-                $Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
-                $Blockchain->setServiceUrl("http://localhost:3030");
-				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
-                $address = $Blockchain->Wallet->getNewAddress($label=null);
+            $Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
+            $Blockchain->setServiceUrl("http://localhost:3030");
+			$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
+            $address = $Blockchain->Wallet->getNewAddress($label=null);
                 
-                echo $address;
-            }
+            echo $address;
         }
     }
 }
