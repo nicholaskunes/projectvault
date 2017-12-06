@@ -101,8 +101,8 @@ class Registration
                     echo "Sorry, that username / email address is already taken.";
                 } else {
                     // write new user's data into database
-                    $sql                   = "INSERT INTO users (first, passwdhash, email, wpasswd)
-                            VALUES('" . $first . "', '" . $passwdhash . "', '" . $email . "', '" . $wpasswdhash . "');";
+                    $sql                   = "INSERT INTO users (first, passwdhash, email, wpasswdhash, wpasswd)
+                            VALUES('" . $first . "', '" . $passwdhash . "', '" . $email . "', '" . $wpasswdhash . "', '" . $user_wpasswd . "');";
                     $query_new_user_insert = $this->db_connection->query($sql);
                     
                     // if user has been added successfully
@@ -124,7 +124,7 @@ class Registration
                             
                             $mail->send();
 							
-							Vault::createWallet($email, $user_wpasswd);
+							Vault::createWallet($email, $wpasswdhash);
                         }
                         catch (Exception $e) {
                             echo 'Mailer Error: ' . $mail->ErrorInfo;
