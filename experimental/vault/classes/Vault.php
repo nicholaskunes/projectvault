@@ -29,7 +29,7 @@ class Vault
                 $result_row = $wallet_check->fetch_object();
 				if($result_row->wallet == '') {
 					$Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
-					$Blockchain->setServiceUrl("http://54.39.21.63");
+					$Blockchain->setServiceUrl("http://localhost:3000");
 					$wallet = $Blockchain->Create->create("thgf01");
 					echo $wallet;
 				}
