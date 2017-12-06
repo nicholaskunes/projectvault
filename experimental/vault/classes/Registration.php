@@ -7,10 +7,10 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require 'Exception.php';
-require 'PHPMailer.php';
-require 'SMTP.php';
-require 'Vault.php';
+require_once( 'Exception.php');
+require_once( 'PHPMailer.php');
+require_once( 'SMTP.php');
+require_once( 'Vault.php');
 
 class Registration
 {
