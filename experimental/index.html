@@ -160,13 +160,7 @@ if ($login->isUserLoggedIn() == true) {
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>
-		$(document).ready(function() {
-			App.init();
-		});
-		
-		
-		balance_refresh();
-		function balance_refresh() 
+			function balance_refresh() 
 		{
 		    $.ajax({  
 				type: "POST",  
@@ -178,6 +172,11 @@ if ($login->isUserLoggedIn() == true) {
 			});  
 		}
 		setInterval('balance_refresh()', 15000);
+		
+		$(document).ready(function() {
+			App.init();
+			balance_refresh();
+		});
 	</script>
 </body>
 </html>
