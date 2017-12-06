@@ -169,7 +169,8 @@ if ($login->isUserLoggedIn() == true) {
 				data: {'balance': 'balance'},  
 				success: function(dataString) {  
 					$('#vaultbalance').html('$' + Number(dataString[1]).toFixed(2) + ' USD (' + Number(dataString[0]).toFixed(5) + ' BTC)');
-				}  
+				},
+				dataType:"json"
 			});  
 		}
 		setInterval('balance_refresh()', 15000);
