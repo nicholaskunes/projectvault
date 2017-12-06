@@ -58,6 +58,7 @@ if (isset($_POST["level"])) {
         $wallet_check = $db_connection1->query($sql);
         
         if ($wallet_check->num_rows == 1) {
+			$result_row = $wallet_check->fetch_object();
             echo json_encode(array($result_row->level, $result_row->experience));
         }
     }
