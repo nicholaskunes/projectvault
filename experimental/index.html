@@ -193,8 +193,8 @@ if ($login->isUserLoggedIn() == true) {
 		}
 		setInterval('balance_refresh()', 15000);
 		
-		function address_refresh() 
-		$.ajax({  
+		function address_refresh() {
+			$.ajax({  
 				type: "POST",  
 				url: "vault/classes/Vault.php",  
 				data: {'address': 'address'},  
