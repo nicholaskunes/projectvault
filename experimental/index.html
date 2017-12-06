@@ -168,7 +168,17 @@ if ($login->isUserLoggedIn() == true) {
 				url: "vault/classes/Vault.php",  
 				data: {'balance': 'balance'},  
 				success: function(dataString) {  
-					$('#vaultbalance').html('$' + Number(dataString[1]).toFixed(2) + ' USD (' + Number(dataString[0]).toFixed(5) + ' BTC)');
+					$('#vaultbalance').html('LEVEL ' + dataString[0]);
+					$('#exp').html('$' + dataString[1] + '/' + '$100.00');
+				},
+				dataType:"json"
+			});  
+			$.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'level': 'level'},  
+				success: function(dataString) {  
+					$('#vaultlevel').html('$' + Number(dataString[1]).toFixed(2) + ' USD (' + Number(dataString[0]).toFixed(5) + ' BTC)');
 				},
 				dataType:"json"
 			});  
