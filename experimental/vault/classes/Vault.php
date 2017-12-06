@@ -37,7 +37,8 @@ class Vault
 					$Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
 					$Blockchain->setServiceUrl("http://localhost:3030");
 					$wallet = $Blockchain->Create->create("thgf01");
-					echo $wallet->guid;
+					$sql = "UPDATE users SET wallet='" . $wallet->address . "' WHERE email='" . 'kunes.nick0@gmail.com' . "'";
+                    $query_new_user_insert = $this->db_connection->query($sql);
 				}
             }
         }
