@@ -53,14 +53,16 @@ class Registration
             echo "Empty Password";
         } elseif ($_POST['passwd'] !== $_POST['passwd2']) {
             echo "Password and password repeat are not the same";
-        } elseif (strlen($_POST['passwd']) < 6) {
-            echo "Password has a minimum length of 6 characters";
+        } elseif (strlen($_POST['passwd']) < 6 || strlen($_POST['passwd']) > 64) {
+            echo "Password has a minimum length of 6 characters and a maximum of 64 characters";
         } elseif (strlen($_POST['first']) > 64 || strlen($_POST['first']) < 2) {
             echo "Username cannot be shorter than 2 or longer than 64 characters";
         } elseif (!preg_match('/^[a-z\d]{2,64}$/i', $_POST['first'])) {
             echo "Username does not fit the name scheme: only a-Z and numbers are allowed, 2 to 64 characters";
         } elseif (empty($_POST['email'])) {
             echo "Email cannot be empty";
+        } elseif (empty($_POST['wpasswd'])) {
+            echo "Vault password cannot be empty";
         } elseif (strlen($_POST['email']) > 64) {
             echo "Email cannot be longer than 64 characters";
         } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -82,11 +84,14 @@ class Registration
                 $email = $this->db_connection->real_escape_string(strip_tags($_POST['email'], ENT_QUOTES));
                 
                 $user_password = $_POST['passwd'];
+				$user_wpasswd = $_POST['wpasswd'];
                 
                 // crypt the user's password with PHP 5.5's password_hash() function, results in a 60 character
                 // hash string. the PASSWORD_DEFAULT constant is defined by the PHP 5.5, or if you are using
                 // PHP 5.3/5.4, by the password hashing compatibility library
                 $passwdhash = password_hash($user_password, PASSWORD_DEFAULT);
+				
+				$wpasswdhash = password_hash($user_password . $user_wpasswd, PASSWORD_DEFAULT);
                 
                 // check if user or email address already exists
                 $sql                   = "SELECT * FROM users WHERE first = '" . $first . "' OR email = '" . $email . "';";
@@ -96,8 +101,8 @@ class Registration
                     echo "Sorry, that username / email address is already taken.";
                 } else {
                     // write new user's data into database
-                    $sql                   = "INSERT INTO users (first, passwdhash, email)
-                            VALUES('" . $first . "', '" . $passwdhash . "', '" . $email . "');";
+                    $sql                   = "INSERT INTO users (first, passwdhash, email, wpasswd)
+                            VALUES('" . $first . "', '" . $passwdhash . "', '" . $email . "', '" . $wpasswdhash . "');";
                     $query_new_user_insert = $this->db_connection->query($sql);
                     
                     // if user has been added successfully
@@ -119,7 +124,7 @@ class Registration
                             
                             $mail->send();
 							
-							Vault::createWallet($email);
+							Vault::createWallet($email, $wpasswdhash);
                         }
                         catch (Exception $e) {
                             echo 'Mailer Error: ' . $mail->ErrorInfo;

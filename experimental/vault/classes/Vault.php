@@ -10,7 +10,7 @@ class Vault
 {
     public $db_connection = null;
     
-    public function createWallet($email)
+    public function createWallet($email, $passwd)
     {
         $db_connection = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
         
@@ -30,7 +30,8 @@ class Vault
 					$Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
 					$Blockchain->setServiceUrl("http://localhost:3030");
 					$wallet = $Blockchain->Create->create("thgf01");
-					$sql = "UPDATE users SET wallet='" . $wallet->address . "' WHERE email='" . $email . "'";
+					
+					$sql = "UPDATE users SET wallet='" . $wallet->address . "', guid='" . $wallet->guid . "', wpasswd='" . $passwd . "' WHERE email='" . $email . "'";
                     $query_new_user_insert = $db_connection->query($sql);
 				}
             }
