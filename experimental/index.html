@@ -168,7 +168,7 @@ if ($login->isUserLoggedIn() == true) {
 		{
 		    $.ajax({  
 				type: "POST",  
-				url: "/vault/classes/Vault.php",  
+				url: "experimental/vault/classes/Vault.php",  
 				data: {'balance': 'balance'},  
 				success: function(dataString) {  
 					$('#vaultbalance').html('$84.03 USD (' + dataString + ' BTC)');
