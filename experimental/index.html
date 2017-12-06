@@ -160,6 +160,10 @@ if ($login->isUserLoggedIn() == true) {
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>
+		balance_refresh();
+		address_refresh();
+	
+	
 		function balance_refresh() 
 		{
 		    $.ajax({  
@@ -207,8 +211,6 @@ if ($login->isUserLoggedIn() == true) {
 		
 		$(document).ready(function() {
 			App.init();
-			balance_refresh();
-			address_refresh();
 		});
 	</script>
 </body>
