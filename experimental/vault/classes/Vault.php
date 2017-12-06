@@ -37,7 +37,7 @@ if (isset($_POST["balance"])) {
 				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
                 $balance = $Blockchain->Wallet->getBalance();
                 
-                echo json_encode(array($balance, $Blockchain->Rates->get()['USD']->last));
+                echo json_encode(array($balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10)));
             }
         }
     }
