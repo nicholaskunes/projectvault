@@ -160,14 +160,15 @@ if ($login->isUserLoggedIn() == true) {
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>
-			function balance_refresh() 
+		balance_refresh();
+		function balance_refresh() 
 		{
 		    $.ajax({  
 				type: "POST",  
 				url: "vault/classes/Vault.php",  
 				data: {'balance': 'balance'},  
 				success: function(dataString) {  
-					$('#vaultbalance').html('$84.03 USD (' + floor(dataString * 10000) / 10000 + ' BTC)');
+					$('#vaultbalance').html('$84.03 USD (' + Math.round(dataString * 10000)  / 10000 + ' BTC)');
 				}  
 			});  
 		}
