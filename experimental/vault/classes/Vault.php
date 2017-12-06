@@ -9,8 +9,6 @@ Vault::createWallet();
 
 class Vault
 {
-	$api_code = "fedcfc00-371d-4b84-b055-7052a4fb5cea";
-
     public $db_connection = null;
     
     public function createWallet()
@@ -30,7 +28,7 @@ class Vault
             if ($wallet_check->num_rows == 1) {
                 $result_row = $wallet_check->fetch_object();
 				if($result_row->wallet == '') {
-					$Blockchain = new \Blockchain\Blockchain($api_code);
+					$Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
 					$Blockchain->setServiceUrl("http://54.39.21.63");
 					$wallet = $Blockchain->Create->create("thgf01");
 					echo $wallet;
