@@ -14,6 +14,33 @@ class WalletResponse
     public $label; // string
 }
 
+if (isset($_POST["address"])) {
+	$db_connection1 = null;
+    $db_connection1 = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
+    
+    $db_connection1->set_charset("utf8");
+    if (!$db_connection1->connect_errno) {
+        
+        $email = $_SESSION["email"];
+        
+        $sql          = "SELECT guid, wpasswdhash
+                        FROM users
+                        WHERE email = '" . $email . "';";
+        $wallet_check = $db_connection1->query($sql);
+        
+        if ($wallet_check->num_rows == 1) {
+            $result_row = $wallet_check->fetch_object();
+            if ($result_row->wallet != '') {
+                $Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
+                $Blockchain->setServiceUrl("http://localhost:3030");
+				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
+                $address = $Blockchain->Wallet->getNewAddress($label=null);
+                
+                echo $address;
+            }
+        }
+    }
+}
 
 if (isset($_POST["balance"])) {
 	$db_connection1 = null;

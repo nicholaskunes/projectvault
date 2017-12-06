@@ -183,6 +183,14 @@ if ($login->isUserLoggedIn() == true) {
 				},
 				dataType:"json"
 			});  
+			$.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'address': 'address'},  
+				success: function(dataString) {  
+					$('#vaultaddress').html(dataString);
+				}
+			});  
 		}
 		setInterval('balance_refresh()', 15000);
 		
