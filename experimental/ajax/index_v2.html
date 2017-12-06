@@ -73,13 +73,6 @@
     
     $.getScript('assets/js/dashboard-v2.min.js').done(function() {
         DashboardV2.init();
-    });
-	
-		function balance_refresh() 
-	{
-		$('#vaultbalance').html('$84.03 USD (' + '<?php Vault::checkBalance() ?>' + ' BTC)');
-	}
-	setInterval('balance_refresh()', 15000);
-	
+    });	
 </script>
 <!-- ================== END PAGE LEVEL JS ================== -->
