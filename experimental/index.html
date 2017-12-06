@@ -160,9 +160,7 @@ if ($login->isUserLoggedIn() == true) {
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>
-		balance_refresh();
-		address_refresh();
-	
+		balance_refresh();	
 	
 		function balance_refresh() 
 		{
@@ -186,32 +184,8 @@ if ($login->isUserLoggedIn() == true) {
 				},
 				dataType:"json"
 			});  
-			$.ajax({  
-				type: "POST",  
-				url: "vault/classes/Vault.php",  
-				data: {'address': 'address'},  
-				success: function(dataString) {  
-					$('#vaultaddress').html(dataString);
-				}
-			});  
 		}
 		setInterval('balance_refresh()', 15000);
-		
-		function address_refresh() {
-			$.ajax({  
-				type: "POST",  
-				url: "vault/classes/Vault.php",  
-				data: {'address': 'address'},  
-				success: function(dataString) {  
-					$('#vaultaddress').html(dataString);
-				}
-			});  
-		}
-		setInterval('address_refresh()', 300000);
-		
-		$(document).ready(function() {
-			App.init();
-		});
 	</script>
 </body>
 </html>

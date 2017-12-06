@@ -136,6 +136,21 @@
 
 <!-- ================== BEGIN PAGE LEVEL JS ================== -->
 <script>
+	
+	address_refresh();
+
+		function address_refresh() {
+			$.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'address': 'address'},  
+				success: function(dataString) {  
+					$('#vaultaddress').html(dataString);
+				}
+			});  
+		}
+		setInterval('address_refresh()', 300000);
+
     App.restartGlobalFunction();
     App.setPageTitle('app name');
     
