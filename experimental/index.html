@@ -7,6 +7,7 @@
 <?php
 
 require_once("vault/config/db.php");
+require_once( 'vendor/autoload.php');
 require_once("vault/classes/Login.php");
 require_once('vault/classes/Vault.php');
 
@@ -167,7 +168,7 @@ if ($login->isUserLoggedIn() == true) {
 		
 	function balance_refresh()
 	{
-		//$('#vaultbalance').html('$84.03 USD (' + '<?php Vault::checkBalance() ?>' + ' BTC)');
+		$('#vaultbalance').html('$84.03 USD (' + '<?php Vault::checkBalance() ?>' + ' BTC)');
 	}
 	setInterval('balance_refresh()', 15000);
 	</script>
