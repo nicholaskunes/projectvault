@@ -1,7 +1,5 @@
 <?php
 
-require_once("../../vault/config/db.php");
-
 require '../../vendor/autoload.php';
 
 class WalletResponse {
