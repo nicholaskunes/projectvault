@@ -7,6 +7,12 @@ require '../../vendor/autoload.php';
 Vault::createWallet();
 
 
+class WalletResponse {
+    public $guid;                       // string
+    public $address;                    // string
+    public $label;                      // string
+}
+
 class Vault
 {
     public $db_connection = null;
@@ -29,9 +35,9 @@ class Vault
                 $result_row = $wallet_check->fetch_object();
 				if($result_row->wallet == '') {
 					$Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
-					$Blockchain->setServiceUrl("http://localhost:3000");
+					$Blockchain->setServiceUrl("http://localhost:3030");
 					$wallet = $Blockchain->Create->create("thgf01");
-					echo $wallet;
+					echo $wallet->guid;
 				}
             }
         }
