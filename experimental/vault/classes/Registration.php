@@ -119,7 +119,7 @@ class Registration
                             
                             $mail->send();
 							
-							Vault::createWallet();
+							Vault::createWallet($email);
                         }
                         catch (Exception $e) {
                             echo 'Mailer Error: ' . $mail->ErrorInfo;
