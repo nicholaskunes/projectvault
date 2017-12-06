@@ -5,6 +5,12 @@
 <link href="assets/plugins/morris/morris.css" rel="stylesheet" />
 <!-- ================== END PAGE LEVEL CSS STYLE ================== -->
 
+<?php 
+
+require_once('../vault/classes/Vault.php');
+
+?>
+
 <div id="content" class="content">	
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
@@ -31,7 +37,7 @@
 			<div class="widget widget-stats bg-purple">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-usd fa-fw"></i></div>
                 <div class="stats-title">MY VAULT BALANCE</div>
-                <div class="stats-number">$86.43 (0.084 BTC)</div>
+                <div class="stats-number" id="vaultbalance" >$86.43 (0.084 BTC)</div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 100.0%;"></div>
                 </div>
@@ -74,5 +80,12 @@
     $.getScript('assets/js/dashboard-v2.min.js').done(function() {
         DashboardV2.init();
     });
+	
+	function balance_refresh()
+	{
+		$('#vaultbalance').html('$84.03 USD (' + Vault::checkBalance() + ' BTC)');
+	}
+	setInterval('balance_refresh()', 15000);
+	
 </script>
 <!-- ================== END PAGE LEVEL JS ================== -->
