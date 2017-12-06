@@ -35,7 +35,7 @@ if (isset($_POST["balance"])) {
                 $Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
                 $Blockchain->setServiceUrl("http://localhost:3030");
 				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
-                $address = $Blockchain->Wallet->getAddressBalance($result_row->wallet);
+                $address = $Blockchain->Wallet->getBalance();
                 
                 echo $address->balance;
             }
