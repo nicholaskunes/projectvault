@@ -1,7 +1,5 @@
 <?php
 
-require '../../vendor/autoload.php';
-
 class WalletResponse {
     public $guid;                       // string
     public $address;                    // string
