@@ -35,7 +35,7 @@ if (isset($_POST["address"])) {
 			$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
             $address = $Blockchain->Wallet->getNewAddress($label=null);
                 
-            echo $address;
+            echo $address->address;
         }
     }
 }
