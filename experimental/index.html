@@ -78,7 +78,7 @@ if ($login->isUserLoggedIn() == true) {
 					<li class="nav-profile">
 						<div class="info">
 							real name
-							<small>level 1</small>
+							<small id="vaultlevelnav">level 1</small>
 						</div>
 					</li>
 				</ul>
@@ -169,6 +169,7 @@ if ($login->isUserLoggedIn() == true) {
 				data: {'level': 'level'},  
 				success: function(dataString) {  
 					$('#vaultlevel').html('LEVEL ' + dataString[0]);
+					$('#vaultlevelnav').html('level ' + dataString[0]);
 					$('#exp').html('$' + dataString[1] + ' / ' + '$100.00');
 				},
 				dataType:"json"
