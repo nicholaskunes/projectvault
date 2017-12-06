@@ -168,7 +168,7 @@ if ($login->isUserLoggedIn() == true) {
 				url: "vault/classes/Vault.php",  
 				data: {'balance': 'balance'},  
 				success: function(dataString) {  
-					$('#vaultbalance').html('$84.03 USD (' + Number(dataString).toFixed(5) + ' BTC)');
+					$('#vaultbalance').html('$' + Number(dataString[1]).toFixed(2) + ' USD (' + Number(dataString[0]).toFixed(5) + ' BTC)');
 				}  
 			});  
 		}
