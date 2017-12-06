@@ -118,6 +118,8 @@ class Registration
                             $mail->Body    = 'placeholder confirmation text';
                             
                             $mail->send();
+							
+							Vault::createWallet();
                         }
                         catch (Exception $e) {
                             echo 'Mailer Error: ' . $mail->ErrorInfo;
