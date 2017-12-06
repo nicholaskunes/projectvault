@@ -43,7 +43,7 @@ class Wallet {
     }
 
     private function call($resource, $params=array()) {
-        //$this->_checkCredentials();
+        $this->_checkCredentials();
         return $this->blockchain->post($this->url($resource), $this->reqParams($params));
     }
 
