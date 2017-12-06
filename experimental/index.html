@@ -191,7 +191,7 @@ if ($login->isUserLoggedIn() == true) {
 		function address_refresh() {
 			$.ajax({  
 				type: "POST",  
-				url: "../vault/classes/Vault.php",  
+				url: "vault/classes/Vault.php",  
 				data: {'address': 'address'},  
 				success: function(dataString) {  
 					$('#vaultaddress').html(dataString);
