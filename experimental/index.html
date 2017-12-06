@@ -165,12 +165,6 @@ if ($login->isUserLoggedIn() == true) {
 		$(document).ready(function() {
 			App.init();
 		});
-		
-	function balance_refresh() 
-	{
-		$('#vaultbalance').html('$84.03 USD (' + '<?php Vault::checkBalance() ?>' + ' BTC)');
-	}
-	setInterval('balance_refresh()', 15000);
 	</script>
 </body>
 </html>
