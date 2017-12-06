@@ -45,7 +45,7 @@ class Vault
         $db_connection->set_charset("utf8");
         if (!$db_connection->connect_errno) {
             
-            $email = $db_connection->real_escape_string($email);
+            $email = $_SESSION["email"];
             
             $sql     = "SELECT wallet
                         FROM users
