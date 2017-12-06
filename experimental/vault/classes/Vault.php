@@ -28,7 +28,7 @@ if (isset($_POST["address"])) {
                         WHERE email = '" . $email . "';";
         $wallet_check = $db_connection1->query($sql);
         
-        if ($wallet_check->num_rows == 1) {
+        if ($wallet_check->num_rows == 1 && !isset($_SESSION["vaultaddress"])) {
             $result_row = $wallet_check->fetch_object();
             $Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
             $Blockchain->setServiceUrl("http://localhost:3030");
@@ -38,8 +38,10 @@ if (isset($_POST["address"])) {
 			$sql = "UPDATE users SET wallet='" . $address->address . "' WHERE email='" . $email . "'";
             $query_new_user_insert = $db_connection1->query($sql);
                 
-            echo $address->address;
-        }
+            $_SESSION['vaultaddress'] = $address->address;
+        } elseif ($wallet_check->num_rows == 1) {
+			echo $_SESSION['vaultaddress'];
+		}
     }
 }
 
