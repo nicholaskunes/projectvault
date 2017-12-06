@@ -24,7 +24,7 @@ if (isset($_POST["balance"])) {
         
         $email = $_SESSION["email"];
         
-        $sql          = "SELECT wallet
+        $sql          = "SELECT wallet, guid, wpasswdhash
                         FROM users
                         WHERE email = '" . $email . "';";
         $wallet_check = $db_connection1->query($sql);
@@ -34,6 +34,7 @@ if (isset($_POST["balance"])) {
             if ($result_row->wallet != '') {
                 $Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
                 $Blockchain->setServiceUrl("http://localhost:3030");
+				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
                 $address = $Blockchain->Wallet->getAddressBalance($result_row->wallet);
                 
                 echo $address->balance;
