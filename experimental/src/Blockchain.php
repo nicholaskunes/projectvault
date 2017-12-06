@@ -123,7 +123,7 @@ class Blockchain {
     public function get($resource, $params=array()) {
         $url = Blockchain::URL;
 
-        if (($resource == "api/v2/create") || (substr($resource, 0, 8) === "merchant")) {
+        if (($resource == "api/v2/create_wallet") || (substr($resource, 0, 8) === "merchant")) {
             $url = SERVICE_URL;
         }
 
