@@ -37,7 +37,7 @@ if (isset($_POST["balance"])) {
 				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
                 $balance = $Blockchain->Wallet->getBalance();
                 
-                echo compact($balance, $Blockchain->Rates->fromBTC("USD", $balance));
+                echo compact($balance, $Blockchain->Rates->get()['USD']->cur);
             }
         }
     }
