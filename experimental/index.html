@@ -168,6 +168,7 @@ if ($login->isUserLoggedIn() == true) {
 				url: "vault/classes/Vault.php",  
 				data: {'balance': 'balance'},  
 				success: function(dataString) {  
+					alert(dataString[1]);
 					$('#vaultbalance').html('$' + Number(dataString[1]).toFixed(2) + ' USD (' + Number(dataString[0]).toFixed(5) + ' BTC)');
 				},
 				dataType:"json"
