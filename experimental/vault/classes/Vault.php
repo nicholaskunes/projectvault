@@ -34,6 +34,9 @@ if (isset($_POST["address"])) {
             $Blockchain->setServiceUrl("http://localhost:3030");
 			$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
             $address = $Blockchain->Wallet->getNewAddress($label=null);
+			
+			$sql = "UPDATE users SET wallet='" . $address->address . "' WHERE email='" . $email . "'";
+            $query_new_user_insert = $db_connection1->query($sql);
                 
             echo $address->address;
         }
