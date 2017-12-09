@@ -5,6 +5,7 @@
 				url: "vault/classes/Vault.php",  
 				data: {'dashboarddata': 'dashboarddata'},  
 				success: function(dataString) {  
+					$('#btcprice').html('$' + dataString[6]);
 					$('#vaultbalance').html('$' + Number(dataString[3]).toFixed(2) + ' USD (' + Number(dataString[2]).toFixed(5) + ' BTC)');
 					$('#vaultlevel').html('LEVEL ' + dataString[0]);
 					$('#vaultlevelnav').html('level ' + dataString[0]);
