@@ -31,7 +31,7 @@
 			<div class="widget widget-stats bg-purple">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-usd fa-fw"></i></div>
                 <div class="stats-title">MY VAULT BALANCE</div>
-                <div class="stats-number">$86.43 (0.084 BTC)</div>
+                <div class="stats-number" id="vaultbalance" >$86.43 (0.084 BTC)</div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 100.0%;"></div>
                 </div>
@@ -40,11 +40,11 @@
 			<div class="widget widget-stats bg-blue">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-level-up fa-fw"></i></div>
                 <div class="stats-title">MY LEVEL</div>
-                <div class="stats-number">LEVEL 1</div>
+                <div class="stats-number" id="vaultlevel">LEVEL 1</div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 12.94%;"></div>
                 </div>
-                <div class="stats-desc">$12.94 / $100.00</div>
+                <div class="stats-desc" id="exp">$12.94 / $100.00</div>
             </div>
 			<div class="widget widget-stats bg-red">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-money fa-fw"></i></div>
@@ -73,6 +73,6 @@
     
     $.getScript('assets/js/dashboard-v2.min.js').done(function() {
         DashboardV2.init();
-    });
+    });	
 </script>
 <!-- ================== END PAGE LEVEL JS ================== -->

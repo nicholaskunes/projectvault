@@ -3,6 +3,23 @@
 <!--[if !IE]><!-->
 <html lang="en">
 <!--<![endif]-->
+
+<?php
+
+require_once("vault/config/db.php");
+require_once("vault/classes/Login.php");
+
+$login = new Login();
+
+if ($login->isUserLoggedIn() == true) {
+
+} else {
+    header( "Location: http://54.39.21.63/experimental/login.html" );
+	exit();
+}
+
+?>
+
 <head>
 	<meta charset="utf-8" />
 	<title id="page-title">app name</title>
@@ -61,7 +78,7 @@
 					<li class="nav-profile">
 						<div class="info">
 							real name
-							<small>level 1</small>
+							<small id="vaultlevelnav">level 1</small>
 						</div>
 					</li>
 				</ul>
@@ -100,7 +117,7 @@
 					    </a>
 					</li>
 					<li class="has-sub">
-						<a href="#ajax/login.html">
+						<a href="login.html?logout">
 						    <i class="fa fa-sign-out"></i>
 						    <span>Sign off</span>
 					    </a>
@@ -143,6 +160,45 @@
 	<!-- ================== END PAGE LEVEL JS ================== -->
 	
 	<script>
+		balance_refresh();	
+		function balance_refresh() 
+		{
+		    $.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'level': 'level'},  
+				success: function(dataString) {  
+					$('#vaultlevel').html('LEVEL ' + dataString[0]);
+					$('#vaultlevelnav').html('level ' + dataString[0]);
+					$('#exp').html('$' + dataString[1] + ' / ' + '$100.00');
+				},
+				dataType:"json"
+			});  
+			$.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'balance': 'balance'},  
+				success: function(dataString) {  
+					$('#vaultbalance').html('$' + Number(dataString[1]).toFixed(2) + ' USD (' + Number(dataString[0]).toFixed(5) + ' BTC)');
+				},
+				dataType:"json"
+			});  
+		}
+		setInterval('balance_refresh()', 15000);
+		
+		address_refresh();
+		function address_refresh() {
+			$.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'address': 'address'},  
+				success: function(dataString) {  
+					$('#vaultaddress').html(dataString);
+				}
+			});  
+		}
+		setInterval('address_refresh()', 2000);
+		
 		$(document).ready(function() {
 			App.init();
 		});
