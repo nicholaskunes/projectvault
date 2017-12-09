@@ -45,7 +45,7 @@ if (isset($_POST["address"])) {
     }
 }
 
-if (isset($_POST["balance"])) {
+if (isset($_POST["dashboarddata"])) {
 	$db_connection1 = null;
     $db_connection1 = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
     
@@ -66,30 +66,19 @@ if (isset($_POST["balance"])) {
                 $Blockchain->setServiceUrl("http://localhost:3030");
 				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
                 $balance = $Blockchain->Wallet->getBalance();
-                
-                echo json_encode(array($balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10)));
-            }
-        }
-    }
-}
-
-if (isset($_POST["level"])) {
-	$db_connection1 = null;
-    $db_connection1 = new mysqli(DB_HOST, DB_USER, DB_PASS, DB_NAME);
-    
-    $db_connection1->set_charset("utf8");
-    if (!$db_connection1->connect_errno) {
+				
+				$email = $_SESSION["email"];
         
-        $email = $_SESSION["email"];
-        
-        $sql          = "SELECT level, experience
+				$sql = "SELECT level, experience
                         FROM users
                         WHERE email = '" . $email . "';";
-        $wallet_check = $db_connection1->query($sql);
+				$wallet_check = $db_connection1->query($sql);
         
-        if ($wallet_check->num_rows == 1) {
-			$result_row = $wallet_check->fetch_object();
-            echo json_encode(array($result_row->level, $result_row->experience));
+				if ($wallet_check->num_rows == 1) {
+					$result_row = $wallet_check->fetch_object();
+					echo json_encode(array($result_row->level, $result_row->experience, $balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10)));
+				}               
+            }
         }
     }
 }

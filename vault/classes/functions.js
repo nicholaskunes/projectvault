@@ -1,22 +1,14 @@
 		function balance_refresh() 
 		{
-		    $.ajax({  
-				type: "POST",  
-				url: "vault/classes/Vault.php",  
-				data: {'level': 'level'},  
-				success: function(dataString) {  
-					$('#vaultlevel').html('LEVEL ' + dataString[0]);
-					$('#vaultlevelnav').html('level ' + dataString[0]);
-					$('#exp').html('$' + dataString[1] + ' / ' + '$100.00');
-				},
-				dataType:"json"
-			});  
 			$.ajax({  
 				type: "POST",  
 				url: "vault/classes/Vault.php",  
-				data: {'balance': 'balance'},  
+				data: {'dashboarddata': 'dashboarddata'},  
 				success: function(dataString) {  
-					$('#vaultbalance').html('$' + Number(dataString[1]).toFixed(2) + ' USD (' + Number(dataString[0]).toFixed(5) + ' BTC)');
+					$('#vaultbalance').html('$' + Number(dataString[2]).toFixed(2) + ' USD (' + Number(dataString[3]).toFixed(5) + ' BTC)');
+					$('#vaultlevel').html('LEVEL ' + dataString[0]);
+					$('#vaultlevelnav').html('level ' + dataString[0]);
+					$('#exp').html('$' + dataString[1] + ' / ' + '$100.00');
 				},
 				dataType:"json"
 			});  
