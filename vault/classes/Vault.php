@@ -68,7 +68,6 @@ if (isset($_POST["dashboarddata"])) {
                 $balance = $Blockchain->Wallet->getBalance();
         
 				if ($wallet_check->num_rows == 1) {
-					$result_row = $wallet_check->fetch_object();
 					echo json_encode(array($result_row->level, $result_row->experience, $balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10)));
 				}               
             }
