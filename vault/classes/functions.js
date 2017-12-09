@@ -8,7 +8,12 @@
 					$('#vaultbalance').html('$' + Number(dataString[3]).toFixed(2) + ' USD (' + Number(dataString[2]).toFixed(5) + ' BTC)');
 					$('#vaultlevel').html('LEVEL ' + dataString[0]);
 					$('#vaultlevelnav').html('level ' + dataString[0]);
-					$('#exp').html('$' + dataString[1] + ' / ' + '$100.00');
+					jQuery.each(dataString[4], function() {
+						if(this = dataString[0]) {
+							$('#exp').html('$' + dataString[1] + ' / ' + '$' + this);
+						}
+						return (this != "four");
+					});
 				},
 				dataType:"json"
 			});  
