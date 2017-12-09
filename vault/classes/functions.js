@@ -10,7 +10,7 @@
 					$('#vaultlevelnav').html('level ' + dataString[0]);
 					$('#exp').html('$' + dataString[1] + ' / ' + '$' + dataString[4][parseInt(dataString[0])]);
 					$('#levelbar').css('width', (dataString[1] / dataString[4][parseInt(dataString[0])] * 100) + "%");
-					$('#dailylevelbar').css('width', (dataString[5] / parseInt(dataString[0]) * 100 + "%");
+					$('#dailylevelbar').css('width', (dataString[5] / dataString[4][parseInt(dataString[0])]) * 100 + "%");
 					$('#dailycap').html('$' + dataString[5] + ' / ' + '$' + dataString[4][parseInt(dataString[0])]);
 					$('#dailycapnote').html('increased to $' + dataString[4][parseInt(dataString[0]) + 1] + ' dollars at level ' + (parseInt(dataString[0]) + 1));
 				},
