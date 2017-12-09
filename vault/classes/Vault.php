@@ -73,9 +73,10 @@ if (isset($_POST["dashboarddata"])) {
 				$expdata = $wallet_check->fetch_object();
 				
 				$btcprice = $Blockchain->Rates->get()['USD']->last;
+				$vaultaddr =  $_SESSION['vaultaddress'];
         
 				if ($wallet_check->num_rows == 1) {
-					echo json_encode(array($result_row->level, $result_row->experience, $balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10), $expdata, $result_row->boughttoday, $btcprice));
+					echo json_encode(array($result_row->level, $result_row->experience, $balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10), $expdata, $result_row->boughttoday, $btcprice, $vaultaddr));
 				}               
             }
         }
