@@ -10,7 +10,7 @@
 					$('#vaultlevelnav').html('level ' + dataString[0]);
 					jQuery.each(dataString[4], function() {
 						found = false;
-						if(this = dataString[0]) {
+						if(this == dataString[0]) {
 							found = true;
 							$('#exp').html('$' + dataString[1] + ' / ' + '$' + this);
 						}
