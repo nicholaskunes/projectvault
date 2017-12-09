@@ -185,7 +185,6 @@ if ($login->isUserLoggedIn() == true) {
 		}
 		setInterval('balance_refresh()', 15000);
 		
-		address_refresh();
 		function address_refresh() {
 			$.ajax({  
 				type: "POST",  
@@ -200,6 +199,7 @@ if ($login->isUserLoggedIn() == true) {
 				
 		$(document).ready(function() {
 			balance_refresh();	
+			address_refresh();
 			App.init();
 		});
 	</script>
