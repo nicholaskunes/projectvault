@@ -54,7 +54,7 @@ if (isset($_POST["dashboarddata"])) {
         
         $email = $_SESSION["email"];
         
-        $sql          = "SELECT wallet, guid, wpasswdhash, level, experience
+        $sql          = "SELECT wallet, guid, wpasswdhash, level, experience, boughttoday
                         FROM users
                         WHERE email = '" . $email . "';";
         $wallet_check = $db_connection1->query($sql);
@@ -73,7 +73,7 @@ if (isset($_POST["dashboarddata"])) {
 				$expdata = $wallet_check->fetch_object();
         
 				if ($wallet_check->num_rows == 1) {
-					echo json_encode(array($result_row->level, $result_row->experience, $balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10), $expdata));
+					echo json_encode(array($result_row->level, $result_row->experience, $balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10), $expdata, $result_row->boughttoday));
 				}               
             }
         }
