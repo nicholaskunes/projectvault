@@ -54,7 +54,7 @@ if (isset($_POST["dashboarddata"])) {
         
         $email = $_SESSION["email"];
         
-        $sql          = "SELECT wallet, guid, wpasswdhash
+        $sql          = "SELECT wallet, guid, wpasswdhash, level, experience
                         FROM users
                         WHERE email = '" . $email . "';";
         $wallet_check = $db_connection1->query($sql);
@@ -66,13 +66,6 @@ if (isset($_POST["dashboarddata"])) {
                 $Blockchain->setServiceUrl("http://localhost:3030");
 				$Blockchain->Wallet->credentials($result_row->guid, $result_row->wpasswdhash);
                 $balance = $Blockchain->Wallet->getBalance();
-				
-				$email = $_SESSION["email"];
-        
-				$sql = "SELECT level, experience
-                        FROM users
-                        WHERE email = '" . $email . "';";
-				$wallet_check = $db_connection1->query($sql);
         
 				if ($wallet_check->num_rows == 1) {
 					$result_row = $wallet_check->fetch_object();
