@@ -104,6 +104,12 @@ if (isset($_POST["level"])) {
     }
 }
 
+if (isset($_POST["btcprice"])) {
+	$Blockchain = new \Blockchain\Blockchain("fedcfc00-371d-4b84-b055-7052a4fb5cea");
+    $Blockchain->setServiceUrl("http://localhost:3030");
+	echo $Blockchain->Rates->get()['USD']->last;
+}
+
 class Vault
 {
     public $db_connection = null;

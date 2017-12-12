@@ -20,6 +20,17 @@
 			});  
 		}
 		
+		function calculateBTC() {
+			$.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'btcprice': 'btcprice'},  
+				success: function(dataString) {  
+					$('#btccalcprice').html("BTC " + dataString);
+				}
+			}); 
+		}
+		
 		function address_refresh() {
 			$.ajax({  
 				type: "POST",  
