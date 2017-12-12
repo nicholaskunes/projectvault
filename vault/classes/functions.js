@@ -26,7 +26,7 @@
 				url: "vault/classes/Vault.php",  
 				data: {'btcprice': 'btcprice'},  
 				success: function(dataString) {  
-					$('#btccalcprice').html("BTC " + dataString);
+					$('#btccalcprice').html("BTC " + bcdiv(document.getElementById('amountinput').innerHTML, dataString, 5));
 				}
 			}); 
 		}
