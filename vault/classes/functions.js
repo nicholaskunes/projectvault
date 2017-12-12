@@ -32,9 +32,9 @@
 					
 					var minersfee = 0.0;
 					if($('#minersfeecheck').is(':checked'))
-						minersfee = parseFloat(parseFloat(250 * feedata.hourFee) / 100000000);
+						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 3)) / 100000000);
 					else
-						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 2)) / 100000000);
+						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 4)) / 100000000);
 					
 					alert(minersfee);
 						
