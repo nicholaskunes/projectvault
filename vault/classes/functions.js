@@ -32,9 +32,9 @@
 					
 					var minersfee = 0.0;
 					if($('#minersfeecheck').is(':checked'))
-						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 3)) / 100000000);
+						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 2)) / 100000000);
 					else
-						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 4)) / 100000000);
+						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 3)) / 100000000);
 											
 					$('#amountinputfinal').val(parseFloat(parseFloat(document.getElementById('amountinput').value) + parseFloat(parseFloat(minersfee * parseFloat(dataString[6])))).toFixed(2));
 					$('#btccalcpricefinal').html("BTC " + parseFloat(document.getElementById('amountinputfinal').value / dataString[6]).toPrecision(5));
