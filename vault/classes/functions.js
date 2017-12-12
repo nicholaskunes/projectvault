@@ -31,9 +31,21 @@
 			});  
 		}
 		
+		function grabFees() {
+			$.ajax({  
+				type: "GET",  
+				url: "https://bitcoinfees.earn.com/api/v1/fees/recommended",  
+				success: function(dataString) {  
+					return dataString;
+				},
+				dataType:"json"
+			});  
+		}
+		
 		function init_dashboard() {
 			balance_refresh();	
 			address_refresh();
+			alert(graphFees());
 			setInterval('balance_refresh()', 15000);
 			setInterval('address_refresh()', 2000);
 		}
