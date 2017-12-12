@@ -83,7 +83,7 @@
                             <div class="col-md-6 col-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon">USD</span>
-									<input type="text" id="amountinput" onkeyUp="calculateBTC()" class="form-control" />
+									<input type="text" id="amountinput" onkeyUp="calculateBTC()" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" />
 									<span class="input-group-addon" id="btccalcprice" >BTC 0.00</span>
 								</div>
                             </div>
