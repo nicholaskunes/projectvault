@@ -35,10 +35,8 @@
 						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 3)) / 100000000);
 					else
 						minersfee = parseFloat(parseFloat(250 * parseFloat(feedata.hourFee / 4)) / 100000000);
-					
-					alert(minersfee);
-						
-					$('#amountinputfinal').val(parseFloat(parseFloat(document.getElementById('amountinput').value) + parseFloat(dataString[8][parseInt(dataString[0])] * parseFloat(document.getElementById('amountinput').value))).toFixed(2));
+											
+					$('#amountinputfinal').val(parseFloat(parseFloat(document.getElementById('amountinput').value) + parseFloat(parseFloat(minersfee * dataString[6])* parseFloat(document.getElementById('amountinput').value))).toFixed(2));
 					$('#btccalcpricefinal').html("BTC " + parseFloat(document.getElementById('amountinputfinal').value / dataString[6]).toPrecision(5));
 				},
 				dataType:"json"
