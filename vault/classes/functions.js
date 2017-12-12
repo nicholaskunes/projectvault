@@ -45,7 +45,7 @@
 		function init_dashboard() {
 			balance_refresh();	
 			address_refresh();
-			alert(graphFees());
+			alert(grabFees());
 			setInterval('balance_refresh()', 15000);
 			setInterval('address_refresh()', 2000);
 		}
