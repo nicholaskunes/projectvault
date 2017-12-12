@@ -83,7 +83,7 @@
                             <div class="col-md-6 col-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon">USD</span>
-									<input type="text" id="amountinput" onkeyUp="calculateBTC()" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 46)' class="form-control" />
+									<input type="text" id="amountinput" onkeyUp="populateWithdraw()" onkeypress='return (event.charCode >= 48 && event.charCode <= 57) || (event.charCode == 46)' class="form-control" />
 									<span class="input-group-addon" id="btccalcprice" >BTC 0.00</span>
 								</div>
                             </div>
@@ -101,8 +101,8 @@
                             <div class="col-md-6 col-sm-6">
 								<div class="input-group">
 									<span class="input-group-addon">USD</span>
-									<input type="text" class="form-control" readonly/>
-									<span class="input-group-addon">BTC 0.00</span>
+									<input type="text" class="form-control" id="amountinputfinal"  readonly/>
+									<span class="input-group-addon" id="btccalcpricefinal" >BTC 0.00</span>
 								</div>
                             </div>
                         </div>

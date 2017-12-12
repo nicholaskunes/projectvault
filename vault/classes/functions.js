@@ -20,15 +20,18 @@
 			});  
 		}
 		
-		function calculateBTC() {
+		function populateWithdraw() {
 			$.ajax({  
 				type: "POST",  
 				url: "vault/classes/Vault.php",  
-				data: {'btcprice': 'btcprice'},  
+				data: {'dashboarddata': 'dashboarddata'},  
 				success: function(dataString) {  
-					$('#btccalcprice').html("BTC " + parseFloat(document.getElementById('amountinput').value / dataString).toPrecision(5));
-				}
-			}); 
+					$('#btccalcprice').html("BTC " + parseFloat(document.getElementById('amountinput').value / dataString[6]).toPrecision(5));
+					$('#amountinputfinal').html(parseFloat(document.getElementById('amountinput').value).toPrecision(2) + (parseFloat(dataString[8][parseInt(dataString[0])]) * parseFloat(document.getElementById('amountinput').value).toPrecision(2)));
+					$('#btccalcpricefinal').html("BTC " + parseFloat(document.getElementById('amountinputfinal').value / dataString[6]).toPrecision(5));
+				},
+				dataType:"json"
+			});  
 		}
 		
 		function address_refresh() {

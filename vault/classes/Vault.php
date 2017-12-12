@@ -72,11 +72,16 @@ if (isset($_POST["dashboarddata"])) {
 				$wallet_check = $db_connection1->query($sql); 
 				$expdata = $wallet_check->fetch_object();
 				
+				$sql = "SELECT `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`
+                        FROM levelinfo";
+				$wallet_check = $db_connection1->query($sql); 
+				$feeleveldata = $wallet_check->fetch_object();
+				
 				$btcprice = $Blockchain->Rates->get()['USD']->last;
 				$vaultaddr =  $_SESSION['vaultaddress'];
         
 				if ($wallet_check->num_rows == 1) {
-					echo json_encode(array($result_row->level, $result_row->experience, $balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10), $expdata, $result_row->boughttoday, $btcprice, $vaultaddr));
+					echo json_encode(array($result_row->level, $result_row->experience, $balance, bcmul($balance, $Blockchain->Rates->get()['USD']->last, 10), $expdata, $result_row->boughttoday, $btcprice, $vaultaddr, $feeleveldata));
 				}               
             }
         }
