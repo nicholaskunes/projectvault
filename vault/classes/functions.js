@@ -36,7 +36,7 @@
 				type: "GET",  
 				url: "https://bitcoinfees.earn.com/api/v1/fees/recommended",  
 				success: function(dataString) {  
-					$('#feedata').html(dataString);
+					$('#feedata').html(JSON.stringify(dataString));
 				},
 				dataType:"json"
 			});  
