@@ -4197,8 +4197,9 @@ body .fc button:active {
 }
 .login .login-header .brand {
     padding: 0;
-    font-size: 28px;
+    font-size: 35px;
     color: #2d353c
+	font-weight: bold;
 }
 .login .login-header .brand .logo {
     border: 14px solid transparent;
