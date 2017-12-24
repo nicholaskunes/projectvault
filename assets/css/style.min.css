@@ -40,7 +40,7 @@ html {
     height: 100%
 }
 body {
-    background: #004726;
+    background: #84bd00;
     font-size: 14px;
     font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #707478
@@ -6218,7 +6218,7 @@ body.flat-black {
     font-size: 32px
 }
 .register.register-with-news-feed .register-header small {
-    color: #707478;
+    color: #2d353c;
     display: block;
     font-size: 14px;
     margin-top: 10px;
