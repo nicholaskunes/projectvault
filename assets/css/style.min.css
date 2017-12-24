@@ -6193,7 +6193,8 @@ body.flat-black {
 .register.register-with-news-feed .right-content {
     display: table;
 	margin: auto;
-	width: 400px
+	width: 450px;
+	text-align: center;
 }
 .login.login-with-news-feed .login-content,
 .register.register-with-news-feed .register-content {
