@@ -2742,13 +2742,13 @@ a.text-white:focus {
 .bg-orange-darker { background: #c47d15 !important; }
 .bg-orange-lighter { background: #f7b048 !important; }
 
-.bg-yellow { background: #e3fa3e !important; }
-.bg-yellow-darker { background: #b6c832 !important; }
-.bg-yellow-lighter { background: #e9fb65 !important; }
+.bg-yellow { background: #074424 !important; }
+.bg-yellow-darker { background:#074424 !important; }
+.bg-yellow-lighter { background: #074424 !important; }
 
-.bg-green { background: #00acac !important; }
-.bg-green-darker { background: #008a8a !important; }
-.bg-green-lighter { background: #33bdbd !important; }
+.bg-green { background: #074424 !important; }
+.bg-green-darker { background: #074424 !important; }
+.bg-green-lighter { background: #074424 !important; }
 
 .bg-blue { background: #074424 !important; }
 .bg-blue-darker { background: #074424 !important; }
