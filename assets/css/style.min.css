@@ -40,7 +40,7 @@ html {
     height: 100%
 }
 body {
-    background: #d9e0e7;
+    background: #0a5622;
     font-size: 12px;
     font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #707478
@@ -2842,7 +2842,7 @@ a.text-white:hover {
     color: #f0f3f4!important
 }
 .bg-green {
-    background: #074424!important
+    background: #f0f3f4!important
 }
 .bg-silver-lighter {
     background: #f4f6f7!important
