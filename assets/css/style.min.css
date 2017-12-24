@@ -41,7 +41,7 @@ html {
 }
 body {
     background: #004726;
-    font-size: 16px;
+    font-size: 14px;
     font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: #707478
 }
@@ -6193,7 +6193,7 @@ body.flat-black {
 .register.register-with-news-feed .right-content {
     display: table;
 	margin: auto;
-	width: 500px
+	width: 400px
 }
 .login.login-with-news-feed .login-content,
 .register.register-with-news-feed .register-content {
