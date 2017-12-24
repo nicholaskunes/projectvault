@@ -6191,8 +6191,8 @@ body.flat-black {
 }
 .login.login-with-news-feed .right-content,
 .register.register-with-news-feed .right-content {
-    float: right;
-    width: 500px
+    display: table;
+	margin: auto;
 }
 .login.login-with-news-feed .login-content,
 .register.register-with-news-feed .register-content {
