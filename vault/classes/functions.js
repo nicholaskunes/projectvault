@@ -65,9 +65,32 @@
 			});  
 		}
 		
+		
+		function vault_refresh() 
+		{
+			$.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'dashboarddata': 'dashboarddata'},  
+				success: function(dataString) {  
+					$('#vaultbalance').html('$' + Number(dataString[3]).toFixed(2) + ' USD (' + Number(dataString[2]).toFixed(5) + ' BTC)');
+				},
+				dataType:"json"
+			});  
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
 		function init_dashboard() {
 			balance_refresh();	
 			address_refresh();
+			vault_refresh();
 			grabFees();
 			setInterval('grabFees()', 6000);
 			setInterval('balance_refresh()', 15000);
