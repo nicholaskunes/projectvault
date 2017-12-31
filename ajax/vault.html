@@ -23,7 +23,7 @@
 			<div class="widget widget-stats bg-purple">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-usd fa-fw"></i></div>
                 <div class="stats-title">MY VAULT BALANCE</div>
-                <div class="stats-number">$86.43 (0.084 BTC)</div>
+                <div class="stats-number" id="btcprice">$86.43 (0.084 BTC)</div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 100.0%;"></div>
                 </div>
@@ -145,5 +145,11 @@
 	$.getScript('assets/js/form-slider-switcher.demo.min.js').done(function() {;
         FormSliderSwitcher.init();
     });
+	
+	$(document).ready(function() {
+			vault_refresh();
+		});
+	
+	App.
 </script>
 <!-- ================== END PAGE LEVEL JS ================== -->
