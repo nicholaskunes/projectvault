@@ -92,7 +92,5 @@
 			address_refresh();
 			vault_refresh();
 			grabFees();
-			setInterval('grabFees()', 6000);
-			setInterval('balance_refresh()', 15000);
-			setInterval('address_refresh()', 2000);
+			
 		}
