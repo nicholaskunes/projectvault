@@ -80,7 +80,19 @@
 		}
 		
 		
-		
+		function refresh_qr() 
+		{
+			$.ajax({  
+				type: "POST",  
+				url: "vault/classes/Vault.php",  
+				data: {'dashboarddata': 'dashboarddata'},  
+				success: function(dataString) {  
+					$('#qrcode').attr('src', "https://blockchain.info/qr?data=" + dataString[7]);
+					
+				},
+				dataType:"json"
+			});  
+		}
 		
 		
 		
@@ -91,9 +103,11 @@
 			balance_refresh();	
 			address_refresh();
 			vault_refresh();
+			refresh_qr();
 			grabFees();
 			setInterval('grabFees()', 3000);
 			setInterval('balance_refresh()', 15000);
 			setInterval('address_refresh()', 2000);
 			setInterval('vault_refresh()', 2000);
+			setInterval('refresh_qr()', 2000);
 		}
