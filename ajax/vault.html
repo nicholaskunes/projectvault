@@ -23,7 +23,7 @@
 			<div class="widget widget-stats bg-purple">
                 <div class="stats-icon stats-icon-lg"><i class="fa fa-usd fa-fw"></i></div>
                 <div class="stats-title">MY VAULT BALANCE</div>
-                <div class="stats-number" id="">$254.38 USD (0.01858 BTC)</div>
+                <div class="stats-number" id="vaultbalance">Loading balance</div>
                 <div class="stats-progress progress">
                     <div class="progress-bar" style="width: 100.0%;"></div>
                 </div>
@@ -140,6 +140,7 @@
     
     $.getScript('assets/js/dashboard-v2.min.js').done(function() {
         DashboardV2.init();
+		init_dashboard();
     });
 	
 	$.getScript('assets/js/form-slider-switcher.demo.min.js').done(function() {;
